@@ -1,0 +1,36 @@
+# Análise do Exercício 2 - Comparação de Tratamentos para Dor de Cabeça
+
+Este repositório contém a análise do Exercício 2 da lista de Análise de Dados Discretos, que compara dois tratamentos (Placebo e Droga) para alívio de dor de cabeça.
+
+## Objetivo
+
+Avaliar se há diferença nos efeitos dos dois tratamentos em relação ao tempo de alívio da dor de cabeça.
+
+## Métodos
+
+Foram utilizados dois testes estatísticos:
+
+1.  **Teste de Homogeneidade Qui-quadrado:** Para verificar a diferença nas distribuições do tempo de alívio entre os tratamentos, sem considerar a ordem das categorias de tempo.
+2.  **Teste de Mantel-Haenszel:** Para avaliar a associação entre o tratamento e o tempo de alívio, levando em conta a natureza ordinal da variável resposta.
+
+## Resultados
+
+### Teste de Homogeneidade Qui-quadrado
+
+* Estatística Qui-quadrado: 14.9318
+* Graus de Liberdade: 4
+* Valor p: 0.0048
+
+Conclusão: Houve uma diferença significativa na distribuição do tempo de alívio entre os tratamentos (p < 0.05).
+
+### Teste de Mantel-Haenszel
+
+* Estatística Qui-quadrado de Mantel-Haenszel: 14.5232
+* Graus de Liberdade: 1
+* Valor p: 0.0001
+
+Conclusão: Houve uma associação linear significativa entre o tratamento e o tempo de alívio, sugerindo que a Droga está associada a um maior tempo de alívio da dor de cabeça (p < 0.001).
+
+## Interpretação
+
+A análise sugere que a Droga é mais eficaz no alívio da dor de cabeça por um período de tempo mais longo em comparação com o Placebo.
