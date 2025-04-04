@@ -1,0 +1,52 @@
+/* - Análise de Dados de Ensaio Clínico */
+
+/* Entrada de dados */
+data dor_de_cabeca;
+  input tratamento $ tempo_alivio frequencia;
+datalines;
+Placebo 0 7
+Placebo 1 11
+Placebo 2 7
+Placebo 3 4
+Placebo 4 1
+Droga 0 1
+Droga 1 5
+Droga 2 7
+Droga 3 7
+Droga 4 10
+;
+
+/* Teste de Homogeneidade Qui-Quadrado (sem considerar a ordem) */
+proc freq data=dor_de_cabeca;
+  tables tratamento * tempo_alivio / chisq;
+  weight frequencia;
+run;
+
+/* Análise considerando a natureza ordinal da variável resposta */
+/* Atribuição de scores lineares ao tempo de alívio */
+data dor_de_cabeca_scored;
+  set dor_de_cabeca;
+  if tempo_alivio = 0 then score = 0;
+  else if tempo_alivio = 1 then score = 1;
+  else if tempo_alivio = 2 then score = 2;
+  else if tempo_alivio = 3 then score = 3;
+  else if tempo_alivio = 4 then score = 4;
+run;
+
+/* Comparação dos scores médios entre os tratamentos */
+proc means data=dor_de_cabeca_scored noprint;
+  class tratamento;
+  var score;
+  output out=medias_scores mean=media_score;
+run;
+
+proc print data=medias_scores;
+  title 'Médias dos Scores de Tempo de Alívio por Tratamento';
+run;
+
+/* Teste de Mann-Whitney U (Wilcoxon Rank-Sum Test) */
+/* Este teste compara as distribuições de uma variável ordinal entre dois grupos */
+proc npar1way data=dor_de_cabeca_scored wilcoxon;
+  class tratamento;
+  var score;
+run;
