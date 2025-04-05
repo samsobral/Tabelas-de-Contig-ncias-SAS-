@@ -1,0 +1,28 @@
+Objetivo: Verificar se há diferença na distribuição da resposta (Ruim, Razoável, MuitoBom) entre os três centros onde o estudo foi realizado, levando em consideração os dois tratamentos (A e B).
+
+Método: Foram realizadas duas análises:
+
+Teste de Cochran-Mantel-Haenszel (CMH): Para avaliar a associação entre tratamento e resposta, controlando para o centro (apresentado na imagem anterior).
+Teste Qui-quadrado de Independência: Para avaliar a associação entre centro e resposta, controlando para o tratamento (apresentado na imagem atual).
+Resultados da Associação entre Tratamento e Resposta Controlando por Centro (Imagem Anterior):
+
+O Teste de Cochran-Mantel-Haenszel indicou uma diferença estatisticamente significativa entre os tratamentos, controlando para o centro (p-valores para Nonzero Correlation e Row Mean Scores Differ = 0.0006; p-valor para General Association = 0.0017).
+Resultados da Associação entre Centro e Resposta Controlando por Tratamento (Imagem Atual):
+
+Foi realizado um teste Qui-quadrado para avaliar a associação entre o centro e a resposta, controlando para o tratamento. A tabela de contingência de centro por resposta (agregada sobre os tratamentos) é apresentada na imagem.
+Os resultados do teste Qui-quadrado foram:
+Chi-Square: 3.7973
+DF (Graus de Liberdade): 4
+Prob (Valor p): 0.4341
+O Teste de Mantel-Haenszel Qui-quadrado também foi realizado:
+Mantel-Haenszel Chi-Square: 0.0042
+DF (Graus de Liberdade): 1
+Prob (Valor p): 0.9480
+Interpretação dos Resultados da Associação entre Centro e Resposta:
+
+O valor p do teste Qui-quadrado (0.4341) é maior do que um nível de significância comum de 0.05. Portanto, não rejeitamos a hipótese nula de que não há associação entre o centro e a resposta quando os dados são agregados sobre os tratamentos. Isso sugere que, considerando todos os pacientes, a distribuição das respostas não difere significativamente entre os três centros.
+O valor p do Teste de Mantel-Haenszel (0.9480), que tenta encontrar uma associação linear entre centro (considerando uma possível ordem, embora não inerente) e resposta, controlando para o tratamento, também é maior que 0.05. Isso reforça a conclusão de que não há uma diferença consistente na distribuição das respostas entre os centros, mesmo levando em conta os diferentes tratamentos.
+Conclusão Geral:
+
+Houve uma diferença significativa no efeito dos tratamentos na resposta dos pacientes, consistente entre os centros (conforme a análise do CMH).
+No entanto, não houve evidência estatisticamente significativa de uma diferença na distribuição da resposta entre os três centros, seja analisando os dados agregados sobre os tratamentos (Qui-quadrado) ou tentando encontrar uma tendência consistente controlando para o tratamento (Mantel-Haenszel).
