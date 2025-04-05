@@ -1,0 +1,102 @@
+# Dados para Zona Rural
+
+
+ ################## 4  B
+
+
+
+
+stress_rural <- factor(c("Baixo", "Baixo", "Alto", "Alto"))
+atitude_rural <- factor(c("NaoFavoravel", "Favoravel", "NaoFavoravel", "Favoravel"))
+frequencia_rural <- c(14, 58, 112, 116)
+
+tabela_rural <- xtabs(frequencia_rural ~ stress_rural + atitude_rural)
+print("Tabela de Contingência - Zona Rural:")
+print(tabela_rural)
+
+# Teste Qui-quadrado para Zona Rural
+teste_qui_quadrado_rural <- chisq.test(tabela_rural, correct = FALSE)
+print("\nTeste Qui-quadrado - Zona Rural:")
+print(teste_qui_quadrado_rural)
+
+# Dados para Zona Urbana
+stress_urbana <- factor(c("Baixo", "Baixo", "Alto", "Alto"))
+atitude_urbana <- factor(c("NaoFavoravel", "Favoravel", "NaoFavoravel", "Favoravel"))
+frequencia_urbana <- c(162, 66, 64, 8)
+
+tabela_urbana <- xtabs(frequencia_urbana ~ stress_urbana + atitude_urbana)
+print("\nTabela de Contingência - Zona Urbana:")
+print(tabela_urbana)
+
+# Teste Qui-quadrado para Zona Urbana
+teste_qui_quadrado_urbana <- chisq.test(tabela_urbana, correct = FALSE)
+print("\nTeste Qui-quadrado - Zona Urbana:")
+print(teste_qui_quadrado_urbana)
+
+
+
+
+############### 4 C 
+
+# Dados para o Exercício 4 (recriando a estrutura necessária para CMH)
+residencia <- factor(rep(c("Rural", "Rural", "Urbana", "Urbana"), times = c(2, 2, 2, 2)))
+stress <- factor(rep(c("Baixo", "Alto"), each = 2, times = 2))
+atitude <- factor(rep(c("NaoFavoravel", "Favoravel"), each = 1, times = 4))
+frequencia <- c(14, 58, 112, 116, 162, 66, 64, 8)
+
+# Criar um DataFrame
+dados1 <- data.frame(residencia, stress, atitude, frequencia)
+
+# Dados para o Exercício 4 (recriando a estrutura necessária para CMH)
+residencia <- factor(rep(c("Rural", "Urbana"), each = 4))
+stress <- factor(rep(c("Baixo", "Baixo", "Alto", "Alto"), 2))
+atitude <- factor(rep(c("NaoFavoravel", "Favoravel"), each = 2, times = 4))
+frequencia <- c(14, 58, 112, 116, 162, 66, 64, 8)
+
+# Criar um DataFrame
+dados1 <- data.frame(residencia, stress, atitude, frequencia)
+
+# Criar a tabela de contingência estratificada
+tabela_estratificada <- xtabs(frequencia ~ stress + atitude + residencia, data = dados1)
+
+# Instalar e carregar o pacote 'rstatix' para o Teste de Cochran-Mantel-Haenszel
+# Se você ainda não tem, execute: install.packages("rstatix")
+library(rstatix)
+
+# Realizar o Teste de Cochran-Mantel-Haenszel
+teste_cmh <- mantelhaen.test(tabela_estratificada)
+
+# Imprimir os resultados
+print("Teste de Cochran-Mantel-Haenszel (Controlando por Residência):")
+print(teste_cmh)
+
+
+
+
+########### 4 D 1
+
+
+
+######  4 d 2
+# Agregação por Residência e Atitude
+tabela_residencia_atitude <- xtabs(frequencia ~ residencia + atitude, data = dados)
+print("Tabela de Contingência - Residência vs. Atitude (Ignorando Stress):")
+print(tabela_residencia_atitude)
+
+# Teste Qui-quadrado
+teste_residencia_atitude <- chisq.test(tabela_residencia_atitude, correct = FALSE)
+print("\nTeste Qui-quadrado - Residência vs. Atitude (Ignorando Stress):")
+print(teste_residencia_atitude)
+
+
+
+
+# Agregação por Residência e Stress
+tabela_residencia_stress <- xtabs(frequencia ~ residencia + stress, data = dados)
+print("\nTabela de Contingência - Residência vs. Stress (Ignorando Atitude):")
+print(tabela_residencia_stress)
+
+# Teste Qui-quadrado
+teste_residencia_stress <- chisq.test(tabela_residencia_stress, correct = FALSE)
+print("\nTeste Qui-quadrado - Residência vs. Stress (Ignorando Atitude):")
+print(teste_residencia_stress)
