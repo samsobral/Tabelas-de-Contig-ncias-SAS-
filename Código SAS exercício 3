@@ -1,0 +1,39 @@
+/* Entrada  */
+data tratamento;
+  input centro tratamento $ resposta $ frequencia;
+datalines;
+1 A Ruim 6
+1 A Razoavel 6
+1 A MuitoBom 3
+1 B Ruim 2
+1 B Razoavel 7
+1 B MuitoBom 6
+2 A Ruim 4
+2 A Razoavel 7
+2 A MuitoBom 6
+2 B Ruim 2
+2 B Razoavel 4
+2 B MuitoBom 11
+3 A Ruim 11
+3 A Razoavel 19
+3 A MuitoBom 6
+3 B Ruim 6
+3 B Razoavel 12
+3 B MuitoBom 17
+;
+
+
+proc freq data=tratamento;
+    tables Centro*Tratamento*Resposta / cmh;
+    weight Frequencia;
+run;
+
+
+
+/* b. Verificando se há diferença entre os três centros, levando em consideração os tratamentos. */
+/* Agrupando os tratamentos para comparar os centros */
+/* Teste de Qui-Quadrado para verificar diferença entre os Centros */
+proc freq data=tratamento;
+    tables Centro*Resposta / chisq;
+    weight Frequencia;
+run;
