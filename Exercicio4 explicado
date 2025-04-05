@@ -1,0 +1,56 @@
+Exercício 4: Análise da Associação entre Residência, Stress e Atitude
+Objetivo: Avaliar as associações entre residência (rural, urbana), nível de stress (baixo, alto) e atitude em relação a uma política de saúde (favorável, não favorável) em um estudo com 600 indivíduos.
+
+Métodos e Resultados:
+
+a. Avalie a associação entre atitude e "stress" para todos os indivíduos (ignorando residência).
+
+Método: Teste Qui-quadrado de independência em uma tabela de contingência 2x2 (Stress x Atitude) com os dados agregados de ambas as zonas de residência.
+Resultado: O valor p do teste Qui-quadrado foi 1.0000.
+Conclusão: Não houve evidências estatisticamente significativas de uma associação entre atitude e stress quando a residência foi ignorada.
+b. Avalie a associação entre atitude e "stress" para os indivíduos que moram na zona rural. Faça o mesmo para os que moram na zona urbana.
+
+Método: Testes Qui-quadrado de independência separados para os grupos de residência rural e urbana em tabelas de contingência 2x2 (Stress x Atitude) para cada grupo.
+Resultados:
+Zona Rural: Estatística Qui-quadrado ≈ 19.786, df = 1, p-value ≈ 8.663e-06.
+Zona Urbana: Estatística Qui-quadrado ≈ 9.41, df = 1, p-value ≈ 0.002.
+Conclusão: Houve associações estatisticamente significativas entre stress e atitude tanto para os moradores da zona rural quanto para os da zona urbana.
+c. Avalie a associação entre atitude e "stress" para todos os indivíduos de uma maneira que seja controlado (ajustado) pela residência.
+
+Método: Teste de Cochran-Mantel-Haenszel (CMH).
+Resultado: Mantel-Haenszel X-squared = 27.58, df = 1, p-value = 1.507e-07, Common Odds Ratio ≈ 0.27.
+Conclusão: Houve uma associação estatisticamente significativa entre stress e atitude, mesmo após controlar (ajustar) pela residência. A razão de chances comum sugere uma associação negativa entre stress alto e atitude favorável.
+
+
+Exercício 4: Análise da Associação entre Residência, Stress e Atitude (Atualização com Resultados do Item d)
+Objetivo: Avaliar as associações entre residência (rural, urbana), nível de stress (baixo, alto) e atitude em relação a uma política de saúde (favorável, não favorável) em um estudo com 600 indivíduos.
+
+Métodos e Resultados:
+
+a. Avalie a associação entre atitude e "stress" para todos os indivíduos (ignorando residência).
+
+Método: Teste Qui-quadrado de independência.
+Resultado: p-value = 1.0000.
+Conclusão: Não houve evidências significativas de associação.
+b. Avalie a associação entre atitude e "stress" por zona de residência.
+
+Método: Testes Qui-quadrado separados.
+Resultados:
+Rural: p-value ≈ 8.663e-06 (Associação significativa).
+Urbana: p-value ≈ 0.002 (Associação significativa).
+c. Avalie a associação entre atitude e "stress" controlando por residência.
+
+Método: Teste de Cochran-Mantel-Haenszel.
+Resultado: p-value = 1.507e-07 (Associação significativa).
+d. Avalie a associação entre residência e atitude (ignorando "stress"), e entre residência e "stress" (ignorando atitude).
+
+d.1: Associação entre Residência e Atitude (ignorando "stress")
+
+Método: Teste Qui-quadrado de independência.
+Resultado (conforme sua saída): X-squared = 68.732, df = 1, p-value < 2.2e-16.
+Conclusão: Houve uma associação estatisticamente significativa entre a residência e a atitude em relação à política de saúde, ignorando o nível de stress.
+d.2: Associação entre Residência e "Stress" (ignorando atitude)
+
+Método: Teste Qui-quadrado de independência.
+Resultado (conforme sua saída): X-squared = 162.24, df = 1, p-value < 2.2e-16.
+Conclusão: Houve uma associação estatisticamente significativa entre a residência e o nível de stress, ignorando a atitude em relação à política de saúde.
